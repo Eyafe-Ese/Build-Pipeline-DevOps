@@ -22,4 +22,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
     }
   `]
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'customer-app'
+}
