@@ -1,0 +1,47 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: Default
+
+stages:
+- stage: BuildAndTest
+  jobs:
+  - job: AngularJob
+    steps:
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
+      inputs:
+        versionSpec: '22.x'  
+
+    - task: Npm@1
+      displayName: 'Install Angular CLI globally'
+      inputs:
+        command: 'custom'
+        customCommand: 'install -g @angular/cli'
+
+    - task: Npm@1
+      displayName: 'Install project dependencies'
+      inputs:
+        command: 'install'
+
+    - task: Npm@1
+      displayName: 'Run Unit Tests'
+      inputs:
+        command: 'custom'
+        customCommand: 'run test'
+
+    - task: Npm@1
+      displayName: 'Build Angular App'
+      inputs:
+        command: 'custom'
+        customCommand: 'run build'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifacts'
+      inputs:
+        PathtoPublish: 'dist'  
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
