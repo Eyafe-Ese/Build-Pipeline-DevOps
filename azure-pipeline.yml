@@ -28,12 +28,21 @@ stages:
         command: 'install'
 
     - task: Npm@1
-      displayName: 'Run Unit Tests'
+      displayName: 'Run Unit Tests with coverage'
       inputs:
         command: 'custom'
         customCommand: 'run test -- --watch=false --browsers=ChromeHeadless'
+ 
+    - script: |
+        npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
+      displayName: 'Run Unit Tests with Coverage'
 
-      
+  
+    - script: |
+        npx lcov-to-cobertura-xml coverage/lcov.info
+      displayName: 'Convert LCOV to Cobertura XML'
+
+
    - task: PublishTestResults@2
       displayName: 'Publish Test Results'
       condition: succeededOrFailed()
@@ -42,6 +51,14 @@ stages:
         testResultsFiles: '**/TESTS-results.xml'
         searchFolder: '$(System.DefaultWorkingDirectory)'
         mergeTestResults: true
+
+   - task: PublishCodeCoverageResults@1
+      displayName: 'Publish Code Coverage'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: 'coverage/cobertura-coverage.xml'
+        reportDirectory: 'coverage/customer-app' 
+        failIfCoverageEmpty: true
 
     - task: Npm@1
       displayName: 'Build Angular App'
