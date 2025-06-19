@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --watch=false --browsers=ChromeHeadless"
+    "test": "ng test --watch=false --browsers=ChromeHeadless",
+    "coverage:convert": "node lcov-to-cobertura.js coverage/lcov.info coverage/cobertura.xml",
+    "coverage:full": "npm run test:coverage && npm run coverage:convert"
   },
   "private": true,
   "dependencies": {

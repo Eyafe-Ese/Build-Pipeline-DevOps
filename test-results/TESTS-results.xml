@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome Headless 137.0.0.0 (Windows 10)" package="" timestamp="2025-06-19T17:46:55" id="0" hostname="DESKTOP-E0A9EN4" tests="6" errors="0" failures="0" time="0.358">
+<testsuite name="Chrome Headless 137.0.0.0 (Windows 10)" package="" timestamp="2025-06-19T18:43:42" id="0" hostname="DESKTOP-E0A9EN4" tests="6" errors="0" failures="0" time="0.353">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/137.0.0.0 Safari/537.36"/>
   </properties>
-  <testcase name="CustomerFormComponent should create" time="0.232" classname="CustomerFormComponent"/>
-  <testcase name="CustomerListComponent should create" time="0.038" classname="CustomerListComponent"/>
-  <testcase name="CustomerDetailComponent should create" time="0.028" classname="CustomerDetailComponent"/>
-  <testcase name="CustomerService should be created" time="0.004" classname="CustomerService"/>
-  <testcase name="AppComponent should create the app" time="0.05" classname="AppComponent"/>
-  <testcase name="AppComponent should render header and dialog components" time="0.006" classname="AppComponent"/>
+  <testcase name="CustomerService should be created" time="0.031" classname="CustomerService"/>
+  <testcase name="CustomerDetailComponent should create" time="0.139" classname="CustomerDetailComponent"/>
+  <testcase name="CustomerListComponent should create" time="0.077" classname="CustomerListComponent"/>
+  <testcase name="AppComponent should render header and dialog components" time="0.043" classname="AppComponent"/>
+  <testcase name="AppComponent should create the app" time="0.009" classname="AppComponent"/>
+  <testcase name="CustomerFormComponent should create" time="0.054" classname="CustomerFormComponent"/>
   <system-out>
     <![CDATA[
 ]]>

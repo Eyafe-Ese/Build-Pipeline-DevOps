@@ -28,22 +28,20 @@ stages:
         command: 'install'
 
     - task: Npm@1
-      displayName: 'Run Unit Tests with coverage'
+      displayName: 'Run Unit Tests'
       inputs:
         command: 'custom'
         customCommand: 'run test -- --watch=false --browsers=ChromeHeadless'
- 
+
     - script: |
-        npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
+        npm run test:coverage
       displayName: 'Run Unit Tests with Coverage'
 
-  
     - script: |
-        npx lcov-to-cobertura-xml coverage/lcov.info
+        node lcov-to-cobertura.js coverage/lcov.info coverage/cobertura.xml
       displayName: 'Convert LCOV to Cobertura XML'
 
-
-   - task: PublishTestResults@2
+    - task: PublishTestResults@2
       displayName: 'Publish Test Results'
       condition: succeededOrFailed()
       inputs:
@@ -52,12 +50,12 @@ stages:
         searchFolder: '$(System.DefaultWorkingDirectory)'
         mergeTestResults: true
 
-   - task: PublishCodeCoverageResults@1
+    - task: PublishCodeCoverageResults@1
       displayName: 'Publish Code Coverage'
       inputs:
         codeCoverageTool: 'Cobertura'
-        summaryFileLocation: 'coverage/cobertura-coverage.xml'
-        reportDirectory: 'coverage/customer-app' 
+        summaryFileLocation: 'coverage/cobertura.xml'
+        reportDirectory: 'coverage'
         failIfCoverageEmpty: true
 
     - task: Npm@1
@@ -69,6 +67,6 @@ stages:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifacts'
       inputs:
-        PathtoPublish: 'dist'  
+        PathtoPublish: 'dist'
         ArtifactName: 'drop'
         publishLocation: 'Container'
