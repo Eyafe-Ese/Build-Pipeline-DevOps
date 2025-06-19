@@ -1,0 +1,33 @@
+<h1>{{ isEditMode ? 'Edit' : 'Add New' }} Customer</h1>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="customer.name" name="name" required />
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="customer.email" name="email" required />
+  </div>
+  <div>
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" [(ngModel)]="customer.phone" name="phone" required />
+  </div>
+  <div>
+    <label for="gender">Gender:</label>
+    <select id="gender" [(ngModel)]="customer.gender" name="gender" required>
+      <option value="">Select gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="address">Address:</label>
+    <textarea id="address" [(ngModel)]="customer.address" name="address" rows="3"></textarea>
+  </div>
+  <div class="button-container">
+    <button type="submit" class="primary-btn">{{ isEditMode ? 'Update' : 'Add' }} Customer</button>
+    <button type="button" class="cancel-btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>

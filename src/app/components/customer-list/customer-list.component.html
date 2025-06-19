@@ -1,0 +1,22 @@
+<h2>Customer List</h2>
+<div class="filter-container">
+  <input [(ngModel)]="filterText" (input)="filterList()" placeholder="Filter by name, email, or phone" />
+</div>
+
+<ul class="customer-list">
+  @for (customer of filteredCustomers; track customer.id) {
+    <li>
+      <div class="customer-info">
+        <strong>{{ customer.name }}</strong>
+        <span>{{ customer.email }}</span>
+      </div>
+      <div class="action-buttons">
+        <button class="view-btn" (click)="viewDetails(customer.id)">View</button>
+        <button class="edit-btn" (click)="editCustomer(customer.id)">Edit</button>
+        <button class="delete-btn" (click)="deleteCustomer(customer.id)">Delete</button>
+      </div>
+    </li>
+  }
+</ul>
+
+<button class="add-btn" [routerLink]="['/add']">Add New Customer</button>

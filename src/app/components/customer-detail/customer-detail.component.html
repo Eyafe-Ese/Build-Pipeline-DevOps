@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="detail-container">
+    <h2>Customer Details</h2>
+    
+    @if (customer) {
+      <div class="customer-profile">
+        <div class="profile-header">
+          <h3>{{ customer.name }}</h3>
+        </div>
+        
+        <div class="profile-info">
+          <div class="info-row">
+            <div class="info-label">Email</div>
+            <div class="info-value">{{ customer.email }}</div>
+          </div>
+          
+          <div class="info-row">
+            <div class="info-label">Phone</div>
+            <div class="info-value">{{ customer.phone }}</div>
+          </div>
+          
+          <div class="info-row">
+            <div class="info-label">Gender</div>
+            <div class="info-value">{{ customer.gender }}</div>
+          </div>
+          
+          <div class="info-row">
+            <div class="info-label">Address</div>
+            <div class="info-value address">{{ customer.address }}</div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="edit-btn" [routerLink]="['/edit', customer.id]">Edit</button>
+          <button class="back-btn" [routerLink]="['/']">Back to List</button>
+        </div>
+      </div>
+    } @else {
+      <div class="not-found">
+        <h3>Customer not found</h3>
+        <p>The customer you're looking for doesn't exist or has been removed.</p>
+        <button class="back-btn" [routerLink]="['/']">Back to List</button>
+      </div>
+    }
+  </div>
+</div>

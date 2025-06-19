@@ -1,0 +1,143 @@
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.detail-container {
+  background-color: var(--card-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.detail-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.customer-profile {
+  margin-bottom: 30px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-header h3 {
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 500;
+  text-align: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.info-label {
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 12px 15px;
+  color: var(--text-color);
+  min-height: 45px;
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.info-value.address {
+  white-space: pre-line;
+  min-height: 80px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.edit-btn {
+  background-color: var(--warning-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.edit-btn:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.back-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.back-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.not-found {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.not-found h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.not-found p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
